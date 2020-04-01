@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private List<String> data;
+    private List<PersonData> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
-        data.add("Jonas");
-        data.add("Petras");
-        data.add("Juozas");
+        data.add(new PersonData("Jonas", "Jonaitis", 20));
+        data.add(new PersonData("Petras", "Petraitis", 28));
+        data.add(new PersonData("Juozas", "Juozaitis", 36));
 
         adapter.notifyDataSetChanged();
     }
