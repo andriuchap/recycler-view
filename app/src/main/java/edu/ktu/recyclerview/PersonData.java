@@ -1,5 +1,7 @@
 package edu.ktu.recyclerview;
 
+import androidx.annotation.NonNull;
+
 public class PersonData {
     private String firstName;
     private String lastName;
@@ -35,5 +37,11 @@ public class PersonData {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return firstName + " " + lastName + ", " + age;
     }
 }

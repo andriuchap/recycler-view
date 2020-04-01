@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +15,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private CustomAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private List<PersonData> data;
 
@@ -35,5 +38,13 @@ public class MainActivity extends AppCompatActivity {
         data.add(new PersonData("Juozas", "Juozaitis", 36));
 
         adapter.notifyDataSetChanged();
+
+        final Context context = this;
+        adapter.setOnItemClickListener(new CustomAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position) {
+                Toast.makeText(context, data.get(position).toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
